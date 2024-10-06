@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Bedroom Infinite Canvas</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            width: 10000px;
+            height: 10000px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            cursor: move;
+        }
+        .ascii-art {
+            position: absolute;
+            font-family: monospace;
+            white-space: pre;
+            font-size: 14px;
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .ascii-art:hover {
+            transform: scale(1.05);
+        }
+        .poetry {
+            display: none;
+            position: absolute;
+            background-color: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            max-width: 300px;
+            text-align: center;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        const container = document.getElementById('container');
+        let isDragging = false;
+        let startX, startY, scrollLeft, scrollTop;
+
+        const asciiArt = [
+            `
+ _______________________
+|  __________________   |
+| |                  |  |
+| |                  |  |
+| |    ___________   |  |
+| |   |     _     |  |  |
+| |   |    | |    |  |  |
+| |   |____|_|____|  |  |
+| |__________________|  |
+|_______________________|
+            `,
+            `
+   ___________________
+  /___________________\\
+ |     _____________   |
+ |    |             |  |
+ |    |   _______   |  |
+ |    |  |       |  |  |
+ |    |  |       |  |  |
+ |    |  |_______|  |  |
+ |    |_____________|  |
+ |_____________________|
+            `,
+            `
+  ____________________
+ /                    \\
+|  _________________   |
+| |                 |  |
+| |    _________    |  |
+| |   |         |   |  |
+| |   |   ___   |   |  |
+| |   |  |___|  |   |  |
+| |   |_________|   |  |
+| |_________________|  |
+|______________________|
+            `
+        ];
+
+        const poems = [
+            ["In corners quiet, dreams unfold",
+             "Where pillows whisper tales untold",
+             "A sanctuary of soft repose",
+             "Where worries fade and peace grows"],
+            ["Moonlight streams through curtains thin",
+             "Illuminating peace within",
+             "A gentle glow, a soothing sight",
+             "Guardian of sleep through the night"],
+            ["Soft blankets drape like gentle snow",
+             "In this refuge where worries go",
+             "A cocoon of warmth, a restful nest",
+             "Where weary souls find sweet rest"]
+        ];
+
+        function createAsciiArt(x, y, artIndex) {
+            const art = document.createElement('pre');
+            art.classList.add('ascii-art');
+            art.textContent = asciiArt[artIndex % asciiArt.length];
+            art.style.left = `${x}px`;
+            art.style.top = `${y}px`;
+            
+            const poetry = document.createElement('div');
+            poetry.classList.add('poetry');
+            poems[artIndex % poems.length].forEach(line => {
+                poetry.innerHTML += line + '<br>';
+            });
+            art.appendChild(poetry);
+
+            art.addEventListener('click', (e) => {
+                e.stopPropagation();
+                poetry.style.display = poetry.style.display === 'none' ? 'block' : 'none';
+            });
+
+            container.appendChild(art);
+        }
+
+        function generateAsciiArt() {
+            for (let i = 0; i < 100; i++) {
+                const x = Math.random() * 9500;
+                const y = Math.random() * 9500;
+                createAsciiArt(x, y, i);
+            }
+        }
+
+        generateAsciiArt();
+
+        container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - container.offsetLeft;
+            startY = e.pageY - container.offsetTop;
+            scrollLeft = container.scrollLeft;
+            scrollTop = container.scrollTop;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            isDragging = false;
+        });
+
+        container.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const y = e.pageY - container.offsetTop;
+            const walkX = (x - startX) * 2;
+            const walkY = (y - startY) * 2;
+            container.scrollLeft = scrollLeft - walkX;
+            container.scrollTop = scrollTop - walkY;
+        });
+
+        // Viewport shift based on mouse position
+        document.addEventListener('mousemove', (e) => {
+            const xPos = e.clientX / window.innerWidth;
+            const yPos = e.clientY / window.innerHeight;
+            const xShift = (xPos - 0.5) * 20; // Adjust multiplier for sensitivity
+            const yShift = (yPos - 0.5) * 20; // Adjust multiplier for sensitivity
+            
+            container.scrollLeft += xShift;
+            container.scrollTop += yShift;
+        });
+
+        // Zoom functionality
+        container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const scale = e.deltaY > 0 ? 0.9 : 1.1;
+            container.style.transform = `scale(${scale})`;
+            setTimeout(() => {
+                container.style.transform = 'scale(1)';
+            }, 200);
+        });
+
+        // Generate new ASCII art when reaching edges
+        container.addEventListener('scroll', () => {
+            if (container.scrollLeft > container.scrollWidth - window.innerWidth - 500 ||
+                container.scrollTop > container.scrollHeight - window.innerHeight - 500) {
+                for (let i = 0; i < 10; i++) {
+                    const x = Math.random() * 9500;
+                    const y = Math.random() * 9500;
+                    createAsciiArt(x, y, Math.floor(Math.random() * asciiArt.length));
+                }
+            }
+        });
+    </script>
+</body>
+</html>
