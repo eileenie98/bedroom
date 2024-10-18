@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.sanfrancisco {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 95%;
+    max-width: 1400px;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.bedroom {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    line-height: 1;
+    white-space: pre;
+    text-align: left;
+    flex: 0 0 60%;
+    overflow: hidden;
+    max-height: 80vh; /* Keep the height limit */
+    display: block; /* Ensure it behaves like a block element */
+    margin: 0; /* Remove default margin */
+}
+
+.diary {
+    flex: 0 0 38%;
+    padding: 20px;
+    max-height: 80vh; /* Keep diary at max height */
+    overflow: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+}
+
+.diary p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sanfrancisco {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bedroom {
+        flex: 0 0 auto;
+        width: 100%;
+        max-height: none; /* Remove height restriction on mobile */
+        font-size: 1.5vw; /* Adjust font size based on viewport width */
+        transform-origin: top left;
+        transform: scale(1); /* Ensure initial scale */
+    }
+
+    .diary {
+        flex: 0 0 auto;
+        width: 100%;
+        max-height: none; /* Remove height restriction on mobile */
+        margin-top: 20px; /* Space below ASCII art */
+    }
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #333;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 6px;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #666 #333;
+}
