@@ -1,35 +1,55 @@
+* {
+    /*  */
+}
+
 body {
     margin: 0;
-    padding: 0;
+    padding: 0 4rem 0 2rem;
     background-color: black;
     color: white;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     font-family: Arial, sans-serif;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
     height: 100%;
-  
-    .bedroom {
+    width: fit-content;
+    .bedroom > pre {
       display: inline-block;
     }
 }
 
-
-.bedroom {
+.container {
+    width: fit-content;
+    height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+
+/* .bedroom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
     align-items: flex-start;
     width: 100%;
     height: 100%;
     margin-left: 100px;
     gap: 20px;
     box-sizing: border-box;
-}
+} */
 
-.sanfrancisco, .copenhagen {
+
+.bedroom {
+    flex: 1 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     font-family: 'Courier New', Courier, monospace;
     font-size: 10px;
     line-height: 1;
@@ -38,19 +58,35 @@ body {
     overflow: hidden;   
 }
 
-.copenhagen {
-    margin-top: 150px;
+#copenhagen-bedroom {
+    min-width: 1000px;
 }
 
+#sanfrancisco-ascii {
+    max-width: 800px;
+}
+
+/* pre {
+    width: fit-content;
+    height: fit-content;
+} */
+
 .diary {
-    overflow: auto;
+    /* height: 100%; */
+    /* width: 400px; */
+    flex: 0 0 auto;
+    /* max-width: 400px; */
+    display: flex;
+
     font-family: 'Courier New', Courier, monospace;
     font-size: 10px;
+    overflow: auto;
 }
 
 .diary p {
-    margin: 0;
+    margin: auto;
     line-height: 1.6;
+    text-wrap: wrap;
 }
 
 /*
