@@ -25,7 +25,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 
@@ -66,6 +66,10 @@ body {
     max-width: 800px;
 }
 
+#seoul-ascii {
+    max-width: 500px;
+}
+
 /* pre {
     width: fit-content;
     height: fit-content;
@@ -73,13 +77,14 @@ body {
 
 .diary {
     /* height: 100%; */
-    /* width: 400px; */
+    width: 400px;
     flex: 0 0 auto;
     /* max-width: 400px; */
     display: flex;
 
     font-family: 'Courier New', Courier, monospace;
     font-size: 10px;
+    text-align: left;
     overflow: auto;
 }
 
