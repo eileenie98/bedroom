@@ -9,11 +9,11 @@ body {
     color: white;
     /* justify-content: center;
     align-items: center; */
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-    height: 100%;
     width: fit-content;
     .bedroom > pre {
       display: inline-block;
@@ -42,6 +42,25 @@ body {
     box-sizing: border-box;
 } */
 
+.introtext {
+    justify-content: center;
+    align-items: center;
+    height: 35%;
+    margin-top: 100px;
+    padding: 20px 20px 0 20px ;
+    color: aquamarine;
+    border-style: dotted;
+}
+
+.acknowledgments {
+    justify-content: center;
+    align-items: center;
+    height: 17%;
+    margin-top: 397px;
+    padding: 20px 20px 20px 20px ;
+    color: aquamarine;
+    border-style: dotted;
+}
 
 .bedroom {
     flex: 1 0 auto;
@@ -56,6 +75,11 @@ body {
     white-space: pre;
     text-align: left;
     overflow: hidden;   
+}
+
+#book-ascii {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
 }
 
 #copenhagen-bedroom {
@@ -106,7 +130,7 @@ body {
     }
   } 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .sanfrancisco {
         flex-direction: column;
         align-items: center;
@@ -120,13 +144,13 @@ body {
         font-size: 8px; /* Adjust this value to fit your ASCII art */
     }
 
-    .diary {
+    /* .diary {
         flex: 0 0 auto;
         width: 100%;
         max-height: none;
         margin-top: 20px;
-    }
-}
+    } */ 
+
 
 
 /* Scrollbar styles */

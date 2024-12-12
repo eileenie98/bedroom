@@ -1,18 +1,15 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const sanFrancisco = document.querySelector('.sanfrancisco');
-    const copenhagen = document.querySelector('.copenhagen');
-    const toggleButton = document.getElementById('toggle-button');
-    
-    // Show San Francisco by default
-    sanFrancisco.style.display = 'flex';
-    
-    toggleButton.addEventListener('click', function() {
-        if (sanFrancisco.style.display === 'flex') {
-            sanFrancisco.style.display = 'none';
-            copenhagen.style.display = 'flex';
-        } else {
-            copenhagen.style.display = 'none';
-            sanFrancisco.style.display = 'flex';
-        }
-    });
-});
+// //EXPANDED ABOUT BUTTON//
+// const aboutContainer = document.querySelector('.about-container');
+// const aboutButtonContainer = document.querySelector('.about-button-container');
+// const textBox = document.querySelector('.introtext');
+
+// const toggleContent = () => {
+//   aboutContainer.classList.toggle('expanded');
+//   aboutButtonContainer.classList.toggle('hide');
+//   textBox.classList.toggle('show');
+// };
+
+// aboutButtonContainer.addEventListener('click', toggleContent);
+// textBox.addEventListener('click', toggleContent);
+
+
