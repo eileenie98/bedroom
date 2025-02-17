@@ -27,19 +27,6 @@ body {
 }
 
 
-/* .bedroom {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-self: center;
-    align-items: flex-start;
-    width: 100%;
-    height: 100%;
-    margin-left: 100px;
-    gap: 20px;
-    box-sizing: border-box;
-} */
-
 .introtext {
     justify-content: center;
     align-items: center;
@@ -106,44 +93,20 @@ body {
 
 
 #copenhagen-ascii {
-    min-width: 1000px;
+    min-width: 900px;
+    max-width: 1000px;
+}
+
+#online-ascii {
+    min-width: 600px;
     max-width: 1000px;
 }
 
 #sanfrancisco-ascii {
-    max-width: 800px;
+    min-width: 600px;
+    max-width: 1000px;
 }
 
-
-
-
-/* pre {
-    width: fit-content;
-    height: fit-content;
-} */
-
-/* .diary {
-    margin-top: 100px;
-    height: 70%;
-    width: 400px;
-    flex: 0 0 auto;
-    /* max-width: 400px; */
-    /* display: flex;
-    border-style: dotted;
-    border-color: blueviolet; 
-    padding: 15px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
-    text-align: left;
-    overflow: auto;
-
-}   */ */
-
-/* .diary p {
-    margin: auto;
-    line-height: 1.5;
-    text-wrap: wrap;
-} */
 
 .koreanfont {
   font-family: "Edu AU VIC WA NT Guides", serif;
@@ -237,8 +200,6 @@ body {
 }
 
 
-
-
 .koreanfont {
     font-family: "Edu AU VIC WA NT Guides", serif;
     font-optical-sizing: auto;
@@ -263,112 +224,6 @@ body {
       filter: drop-shadow(0 0 1rem #7ae7c7);
       
     }
-
-
-/* Style of button used to open and close the collapsible content */
-  /* .collapsible {
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    width: 400px;
-    flex: 0 0 auto;
-    margin-top: 100px;
-    height: auto;
-    border-style: dotted;
-    border-color: blueviolet; 
-    padding: 15px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
-    text-align: left;
-  }
-  
-  .active, .collapsible:hover {
-    background-color: blueviolet;
-  }
-  
-  .collapsible:after {
-    content: '\002B'; 
-    color: white;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
-  }
-  
-  .active:after {
-    content: "\2212";
-  } 
-  
-  .content {
-    max-height: 0;
-    background-color: black;
-    color: white;
-    width: 400px;
-    flex: 0 0 auto;
-    margin-top: 100px;
-    height: auto;
-    border-style: dotted;
-    border-color: blueviolet; 
-    padding: 15px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
-    text-align: left;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  } */
-
-
-
-/*
-img{
-    display: none
- }
- 
- span:hover + img {
-    display: block;
- }
-
-
-/*
-.koreanfont {
-    font-family: "Edu AU VIC WA NT Arrows", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: aquamarine;
-  }
-
-/*
-.scroll {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    height: 100%;
-  
-    .bedroom {
-      display: inline-block;
-    }
-  } 
-/* Responsive adjustments */
-/* @media (max-width: 768px) {
-    .sanfrancisco {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .bedroom {
-        flex: 0 0 auto;
-        width: 100%;
-        max-height: none;
-        overflow-x: auto;
-        font-size: 8px; /* Adjust this value to fit your ASCII art */
-    
-
-    /* .diary {
-        flex: 0 0 auto;
-        width: 100%;
-        max-height: none;
-        margin-top: 20px;
-    } */ 
 
 
 
