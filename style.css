@@ -18,6 +18,42 @@ body {
     width: fit-content;
 }
 
+.popup {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: blueviolet;
+    border-style: dotted;
+    z-index: 1000;
+    width: 80%;
+    max-width: 300px;
+}
+
+.popup button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: blueviolet;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px
+}
+
+@media (max-width: 360px) {
+    .popup {
+        display: block;
+    }
+}
+
 .container {
     width: fit-content;
     height: 100vh;
