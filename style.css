@@ -1,25 +1,27 @@
 * {
-    /*  */
+    box-sizing: border-box;
 }
 
 
 body {
     margin: 0;
-    padding: 0 0 0 6rem;
+    /* padding: 0 0 0 6rem; */
+    padding: 0;
     background-color: black;
     color: white;
     /* justify-content: center;
     align-items: center; */
     font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
+    font-size: 16px;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
     width: fit-content;
+    height: 100%;
 }
 
-.popup {
-    display: none; /* Initially hidden */
+/* .popup {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -34,9 +36,9 @@ body {
     z-index: 1000;
     width: 80%;
     max-width: 300px;
-}
+} */
 
-.popup button {
+/* .popup button {
     margin-top: 10px;
     padding: 5px 10px;
     background: blueviolet;
@@ -52,7 +54,7 @@ body {
     .popup {
         display: block;
     }
-}
+} */
 
 .container {
     width: fit-content;
@@ -66,7 +68,8 @@ body {
 .introtext {
     justify-content: center;
     align-items: center;
-    height: 35%;
+    /* height: 35%; */
+    height: fit-content;
     margin-top: 100px;
     margin-left: 200px;
     padding: 10px 20px 0 20px;
@@ -77,9 +80,10 @@ body {
 .acknowledgments {
     justify-content: center;
     align-items: center;
-    height: 17%;
-    margin-top: 380px;
-    padding: 10px 20px 20px 20px;
+    /* height: 17%; */
+    height: fit-content;
+    margin-top: 570px;
+    padding: 10px 20px 10px 20px;
     color: aquamarine;
     border-style: dotted;
 }
@@ -87,11 +91,12 @@ body {
 .index {
     justify-content: center;
     align-items: center;
-    height: 50%;
+    /* height: 50vh; */
+    height: fit-content;
     margin-top: 100px;
     margin-left: 50px;
     margin-right: 50px;
-    padding: 10px 20px 0 20px;
+    padding: 10px 20px 10px 20px;
     color: aquamarine;
     border-style: dotted;
 }
@@ -232,9 +237,9 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 13px;
     text-align: left;
-    display: block;
+    display: none;
     padding: 0;
-    opacity: 0;
+    /* opacity: 0;  */
     cursor: default; 
     /* transition: max-height 0.3s ease-out, opacity 0.3s ease-in-out; */
     overflow: hidden; /* Prevents content from appearing before expand */
@@ -242,7 +247,8 @@ body {
 
 /* When text is shown */
 .text.show {
-    opacity: 1;
+    /* opacity: 1; */
+    display: block;
     padding: 15px;
     overflow: auto; /* Enables scrolling when content exceeds height */
 }
@@ -302,3 +308,43 @@ body {
   ::-webkit-scrollbar-thumb:hover {
     background: blueviolet; 
   }
+
+/* Handle on hover */
+  @media (max-width: 430px) {
+    .diary {
+        width: 350px;
+    }
+}
+
+.suggestion-container {
+    display: none;
+}
+
+
+@media (max-width: 560px) {
+.suggestion-container {
+    height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.suggestion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 24px;
+    color: #7ae7c7;
+    border: 1px dotted #7ae7c7;
+    text-align: center;
+}
+
+.suggestion p{
+    /* width: 100%;
+    height: 100%; */
+    white-space: normal;
+}
+}
